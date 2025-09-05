@@ -2,8 +2,9 @@
 
 :root {
   --font-kanit: 'Kanit', sans-serif;
+  --font-ibm: 'IBM Plex Sans Thai', sans-serif;
 }
 
 body {
-  font-family: var(--font-kanit);
+  font-family: var(--font-kanit), var(--font-ibm);
 }
