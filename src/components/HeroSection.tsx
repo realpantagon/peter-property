@@ -3,7 +3,7 @@ import React from 'react';
 export default function HeroSection() {
   return (
     <section className="text-center py-8 sm:py-10">
-      <h2 className="text-xl sm:text-2xl font-bold mb-2">บ้าน ศุภาลัย</h2>
+      {/* <h2 className="text-xl sm:text-2xl font-bold mb-2">บ้าน ศุภาลัย</h2> */}
       {/* <p className="max-w-md sm:max-w-2xl mx-auto text-gray-600 mb-6 text-sm sm:text-base">
         เพราะสิ่งที่สวยงามที่สุดของบ้านคือ "ชีวิตจริง" เป็นเรื่องราวที่เราสร้างผ่านการออกแบบดีไซน์ที่สะท้อนความสุขในบ้านแต่ตัวเอง ออกแบบรองรับทุกไลฟ์สไตล์ตอบสนองครอบครัว มอบชีวิตที่มีคุณภาพด้วยวัสดุที่ได้มาตรฐาน สถาปัตยกรรมและระบบรักษาความปลอดภัย บ้านศุภาลัยตอบโจทย์ทุกความต้องการที่แท้จริง ส่วนกลางครบครัน ตอบโจทย์การใช้ชีวิตด้วยดีไซน์ที่ตอบสนอง
       </p> */}
