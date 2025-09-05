@@ -9,12 +9,12 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: "ขายบ้าน ที่ดิน | Peter Property",
-  description: "ซื้อ-ขาย บ้าน โครงการใหม่ ราคาพิเศษ พร้อมรีวิว ทำเล และข้อมูลครบถ้วน",
+  title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
+  description: "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน",
   keywords: ["บ้าน", "อสังหา", "ขายที่ดิน", "โครงการใหม่", "บ้านสร้างใหม่"],
   openGraph: {
-    title: "ขายบ้าน ที่ดิน | Peter Property",
-    description: "ประกาศขายบ้าน ที่ดิน อสังหาโครงการใหม่",
+    title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
+    description: "ขายบ้าน อสังหาโครงการใหม่ บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน",
     url: "https://yourdomain.com",
     siteName: "Peter Property",
     images: [
