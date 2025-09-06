@@ -1,375 +1,88 @@
-# 🏠 Peter Property - Real Estate Website
+# 🏠 Peter Property - Real Estate Website  
 
-Modern, SEO-optimized real estate website showcasing premium properties in Chiang Mai, Thailand. Built with Next.js 15, TypeScript, and Tailwind CSS.
+Modern, SEO-optimized real estate website showcasing **premium properties in Chiang Mai, Thailand**.  
+Built with **Next.js 15, TypeScript, and Tailwind CSS**.  
 
 ![Peter Property Banner](https://peterproperty.adappts.com/properties/P1/20250906_105639731_iOS.jpg)
 
-## 🌟 Features
+---
 
-### 🎯 **Core Functionality**
-- **Property Showcase** - Interactive galleries with multiple projects
-- **Responsive Design** - Mobile-first approach with optimized UX
-- **Thai Language Support** - Fully localized content and fonts
-- **Contact Integration** - Direct communication channels
-- **Google Maps Integration** - Interactive location mapping
-- **Image Optimization** - Next.js Image component with WebP/AVIF support
+## 🌟 Features  
 
-### 🚀 **SEO Optimized**
-- **Complete Metadata** - Dynamic meta tags for each property page
-- **Structured Data** - JSON-LD schema markup for better search visibility
-- **Sitemap Generation** - Automated XML sitemap
-- **Robots.txt** - Search engine crawling optimization
-- **Open Graph & Twitter Cards** - Enhanced social media sharing
-- **Canonical URLs** - Preventing duplicate content issues
-- **Performance Optimized** - Core Web Vitals focused
+### 🎯 Core Functionality  
+- 🏡 **Property Showcase** – Interactive galleries for multiple projects  
+- 📱 **Responsive Design** – Mobile-first approach with optimized UX  
+- 🇹🇭 **Thai Language Support** – Fully localized content and fonts  
+- 📞 **Contact Integration** – Direct communication channels  
+- 🗺️ **Google Maps** – Interactive location mapping  
+- 🖼️ **Image Optimization** – Next.js Image (WebP/AVIF)  
 
-## 🏗️ **Tech Stack**
+### 🚀 SEO Optimized  
+- 📝 Dynamic **Meta Tags** for each page  
+- 🏗️ **JSON-LD Structured Data** for real estate listings  
+- 🗺️ Automated **Sitemap** + `robots.txt`  
+- 🔗 **Canonical URLs** – no duplicate content  
+- 📊 Optimized for **Core Web Vitals**  
+- 📱 **Open Graph / Twitter Cards** for social media  
 
-| Technology | Purpose | Version |
-|------------|---------|---------|
-| **Next.js** | React Framework | 15.5.2 |
-| **TypeScript** | Type Safety | 5.x |
-| **Tailwind CSS** | Styling | 4.1.13 |
-| **React** | UI Library | 19.1.0 |
-| **Google Fonts** | Typography | Thai + Latin fonts |
-| **ESLint** | Code Quality | 9.x |
+---
 
-## 🏘️ **Property Projects**
+## 🏗️ Tech Stack  
 
-### **P1 - The Nest Maerim**
-- **Type**: 2-story detached house
-- **Bedrooms**: 4 | **Bathrooms**: 4 | **Dressing Rooms**: 2
-- **Location**: Mae Sa, Mae Rim, Chiang Mai
-- **Status**: New Project 🔥
-- **Features**: Premium location, modern design
+| Technology      | Purpose          | Version |
+|-----------------|-----------------|---------|
+| ⚛️ **Next.js**   | React Framework  | 15.5.2  |
+| 📘 **TypeScript** | Type Safety      | 5.x     |
+| 🎨 **Tailwind**   | Styling          | 4.1.13  |
+| ⚛️ **React**      | UI Library       | 19.1.0  |
+| 🔤 **Google Fonts** | Thai + Latin    | Latest  |
+| ✅ **ESLint**      | Code Quality     | 9.x     |
 
-### **P2 - ท่ารั้วแลนด์ 2**
-- **Type**: 2-story detached house  
-- **Bedrooms**: 4 | **Bathrooms**: 3 | **Parking**: 2 cars
-- **Location**: San Pu Loei, Doi Saket, Chiang Mai
-- **Price**: 2.9 - 3.19 Million THB
-- **Status**: Ready for sale ✅
-- **Special**: Promotion with no transfer fees
+---
 
-### **P3 - ท่ารั้วแลนด์ 3**
-- **Type**: Smart Home detached house
-- **Bedrooms**: 4 | **Bathrooms**: 3
-- **Location**: Doi Saket, Chiang Mai
-- **Status**: Recommended project ⭐
+## 🏘️ Property Projects  
 
-### **P4 - แม่ริมบ้านสวย**
-- **Type**: Beautiful house project
-- **Location**: Mae Rim, Chiang Mai
-- **Status**: Available
+### **P1 – The Nest Maerim** 🔥  
+- 🏠 2-story detached house  
+- 🛏️ 4 Bedrooms | 🚿 4 Bathrooms | 👗 2 Dressing Rooms  
+- 📍 Mae Sa, Mae Rim, Chiang Mai  
+- ✨ Modern design, premium location  
 
-## 🚀 **Getting Started**
+### **P2 – ท่ารั้วแลนด์ 2** ✅  
+- 🏠 2-story detached house  
+- 🛏️ 4 Bedrooms | 🚿 3 Bathrooms | 🚗 2 Parking spaces  
+- 💰 2.9 – 3.19M THB  
+- 🎁 Promotion: no transfer fees  
 
-### Prerequisites
-- Node.js 18+ 
-- pnpm (recommended) or npm
+### **P3 – ท่ารั้วแลนด์ 3** ⭐  
+- 🏠 Smart Home detached house  
+- 🛏️ 4 Bedrooms | 🚿 3 Bathrooms  
+- 📍 Doi Saket, Chiang Mai  
 
-### Installation
+### **P4 – แม่ริมบ้านสวย**  
+- 🏠 Beautiful house project  
+- 📍 Mae Rim, Chiang Mai  
+- 🔑 Available  
+
+---
+
+## 🚀 Getting Started  
+
+### Prerequisites  
+- Node.js **18+**  
+- `pnpm` (recommended) or `npm`  
 
 ```bash
-# Clone the repository
+# Clone repo
 git clone https://github.com/realpantagon/peter-property.git
 cd peter-property
 
-# Install dependencies
+# Install deps
 pnpm install
 
-# Start development server
+# Dev server
 pnpm dev
 
-# Build for production
+# Build & serve production
 pnpm build
-
-# Start production server  
 pnpm start
-```
-
-### Development Scripts
-
-```bash
-# Development with Turbopack
-pnpm dev
-
-# Production build with Turbopack
-pnpm build
-
-# Lint code
-pnpm lint
-
-# Start production server
-pnpm start
-```
-
-## 📁 **Project Structure**
-
-```
-peter-property/
-├── public/
-│   ├── icons/                    # Logo assets
-│   ├── properties/               # Property images
-│   │   ├── P1/                  # The Nest Maerim
-│   │   ├── P2/                  # ท่ารั้วแลนด์ 2  
-│   │   ├── P3/                  # ท่ารั้วแลนด์ 3
-│   │   └── P4/                  # แม่ริมบ้านสวย
-│   └── robots.txt               # SEO crawling rules
-├── src/
-│   ├── app/
-│   │   ├── Project/
-│   │   │   ├── p1/page.tsx     # The Nest Maerim
-│   │   │   ├── p2/page.tsx     # ท่ารั้วแลนด์ 2
-│   │   │   ├── p3/page.tsx     # ท่ารั้วแลนด์ 3
-│   │   │   └── p4/page.tsx     # แม่ริมบ้านสวย
-│   │   ├── layout.tsx          # Root layout with SEO
-│   │   ├── page.tsx            # Homepage
-│   │   ├── sitemap.ts          # Generated sitemap
-│   │   └── globals.css         # Global styles
-│   └── components/
-│       ├── ContactUs.tsx       # Contact form
-│       ├── Footer.tsx          # Site footer
-│       ├── GoogleMapSection.tsx # Maps integration
-│       ├── Header.tsx          # Navigation
-│       ├── HeroSection.tsx     # Hero banner
-│       ├── PropertyCard.tsx    # Property preview
-│       ├── PropertySlideshow.tsx # Image galleries
-│       └── PhotoSlideshow.tsx  # Photo viewer
-├── next.config.ts              # Next.js configuration
-├── tailwind.config.js          # Tailwind CSS config
-├── tsconfig.json              # TypeScript config
-└── package.json               # Dependencies
-```
-
-## 🎨 **Design System**
-
-### **Typography**
-- **Primary**: IBM Plex Sans Thai (Thai + Latin support)
-- **Secondary**: Kanit (Thai font family) 
-- **Accent**: Tinos (Serif for headings)
-
-### **Color Palette**
-- **Background**: `#faf9f6` (Warm white)
-- **Accent Gold**: `#b88a3a` 
-- **Success**: `#10b981` (Green)
-- **Warning**: `#f59e0b` (Amber)
-- **Error**: `#ef4444` (Red)
-
-### **Responsive Breakpoints**
-```css
-sm: 640px    /* Mobile landscape */
-md: 768px    /* Tablet */
-lg: 1024px   /* Desktop */
-xl: 1280px   /* Large desktop */
-```
-
-## 📈 **SEO Implementation**
-
-### **On-Page SEO**
-✅ **Page-specific metadata** for each property
-✅ **Structured data (JSON-LD)** for real estate listings  
-✅ **Optimized meta descriptions** with local keywords
-✅ **Proper heading hierarchy** (H1, H2, H3)
-✅ **Image alt attributes** with descriptive text
-✅ **Canonical URLs** to prevent duplicate content
-
-### **Technical SEO**
-✅ **XML Sitemap** auto-generated (`/sitemap.xml`)
-✅ **Robots.txt** with crawling instructions
-✅ **Security headers** (CSP, XSS protection)
-✅ **Image optimization** (WebP, AVIF formats)
-✅ **Performance optimized** (Lighthouse 90+ scores)
-✅ **Mobile-first responsive design**
-
-### **Local SEO**
-✅ **Thai language optimization** (`lang="th"`)
-✅ **Local keywords**: เชียงใหม่, แม่ริม, ดอยสะเก็ด
-✅ **Google Maps integration** for each property
-✅ **Local business schema** markup
-✅ **Contact information** prominently displayed
-
-### **Social Media SEO**
-✅ **Open Graph tags** for Facebook sharing
-✅ **Twitter Cards** for enhanced Twitter previews  
-✅ **Property-specific images** for social sharing
-✅ **Rich snippets** support
-
-## 🌐 **Localization**
-
-The website is primarily designed for the Thai market with:
-- **Thai language content** for property descriptions
-- **Bilingual keywords** (Thai + English) for broader reach
-- **Local pricing** in Thai Baht (THB)
-- **Thai address formats** and location references
-- **Cultural design elements** appropriate for Thai market
-
-## ⚡ **Performance Optimizations**
-
-### **Next.js Features Used**
-- **App Router** for improved performance
-- **Image Component** with automatic optimization
-- **Font Optimization** with Google Fonts
-- **Turbopack** for faster builds
-- **Static Generation** where possible
-
-### **Core Web Vitals**
-- **LCP**: < 2.5s (Large Contentful Paint)
-- **FID**: < 100ms (First Input Delay)  
-- **CLS**: < 0.1 (Cumulative Layout Shift)
-
-## 🛠️ **Development Guidelines**
-
-### **Code Style**
-- TypeScript strict mode enabled
-- ESLint for code quality
-- Prettier for consistent formatting
-- Component-based architecture
-
-### **File Naming**
-- Components: PascalCase (`PropertyCard.tsx`)
-- Pages: lowercase (`page.tsx`)
-- Assets: kebab-case (`property-image.jpg`)
-
-### **Component Structure**
-```tsx
-// Component template
-import { ComponentProps } from 'types'
-
-interface Props {
-  // Define props
-}
-
-export default function ComponentName({ props }: Props) {
-  return (
-    // JSX content
-  );
-}
-```
-
-## 🔧 **Configuration Files**
-
-### **next.config.ts**
-- Security headers
-- Image optimization settings
-- Performance enhancements
-- Cache control policies
-
-### **tailwind.config.js**  
-- Custom color palette
-- Thai font family integration
-- Responsive breakpoint customization
-- Component utilities
-
-### **tsconfig.json**
-- Strict TypeScript configuration
-- Path aliases (@/components, @/app)
-- Next.js optimized settings
-
-## 🚀 **Deployment**
-
-### **Recommended Platforms**
-- **Vercel** (Optimal Next.js integration)
-- **Netlify** (Good alternative with form handling)
-- **Railway** (Simple deployment)
-
-### **Build Process**
-```bash
-# Install dependencies
-pnpm install
-
-# Build project
-pnpm build
-
-# Test production build locally  
-pnpm start
-```
-
-### **Environment Variables**
-```bash
-# Optional Google Analytics
-NEXT_PUBLIC_GA_ID=your-ga-id
-
-# Contact form (if implemented)
-NEXT_PUBLIC_CONTACT_EMAIL=contact@peter-property.com
-```
-
-## 📊 **Analytics & Monitoring**
-
-### **Recommended Tools**
-- **Google Analytics 4** - Traffic and user behavior
-- **Google Search Console** - SEO performance monitoring  
-- **PageSpeed Insights** - Core Web Vitals tracking
-- **Google My Business** - Local SEO presence
-
-### **SEO Monitoring**
-- Monitor keyword rankings for Thai real estate terms
-- Track organic traffic growth
-- Analyze property page performance
-- Monitor local search visibility
-
-## 🤝 **Contributing**
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📝 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 **Contact Information**
-
-**Peter Property**
-- **Website**: [peter-property.com](https://peterproperty.adappts.com)
-- **Location**: Chiang Mai, Thailand
-- **Specialization**: Residential properties, detached houses
-
----
-
-## 🎯 **Key SEO Keywords**
-
-### **Primary Keywords (Thai)**
-- บ้านเดี่ยว (Detached house)
-- บ้านขายเชียงใหม่ (House for sale Chiang Mai)
-- โครงการใหม่ (New project)
-- บ้านแม่ริม (House Mae Rim)
-- บ้านดอยสะเก็ด (House Doi Saket)
-
-### **Secondary Keywords (English)**
-- Real estate Chiang Mai
-- Property Thailand
-- House for sale
-- New development
-- Investment property
-
-### **Long-tail Keywords**
-- บ้านเดี่ยว 2 ชั้น เชียงใหม่ (2-story detached house Chiang Mai)
-- The Nest Maerim บ้านใหม่ (The Nest Maerim new house)
-- ท่ารั้วแลนด์ราคาดี (Tharua Land good price)
-
----
-
-**Built with ❤️ for the Thai real estate market**
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-#   p e t e r - p r o p e r t y 
- 
- 
