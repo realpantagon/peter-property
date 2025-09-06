@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://peterproperty.adappts.com/sitemap.xml

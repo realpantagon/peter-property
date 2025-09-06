@@ -50,7 +50,7 @@ export default function ProjectP1() {
               {/* <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">พร้อมขาย</span> */}
               <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการใหม่</span>
             </div>
-            <div className="flex items-center mb-4 gap-3">
+            <div className="flex mb-4 gap-3">
               <Image
                 src="/properties/P1/TN_logo.png"
                 alt="The Nest Maerim"
@@ -59,9 +59,9 @@ export default function ProjectP1() {
                 style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
                 className="object-cover border border-gray-300 rounded"
               />
-              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 2</h1>
+              <h1 className="text-3xl font-bold mb-4">The Nest Maerim</h1>
             </div>
-            <h1 className="text-3xl font-bold mb-4">The Nest Maerim</h1>
+            
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>

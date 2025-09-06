@@ -44,10 +44,10 @@ export default function PropertyCard({
       </div>
       <Image src={img} alt={title} width={400} height={220} className="w-full h-[220px] object-cover" />
       <div className="p-4">
-        <div className="font-bold font-size-3xl text-base mb-1">{sectionName}</div>
-        <div className="text-xs text-gray-500 mb-1">{sectionDetails}</div>
+        <div className="font-bold text-2xl mb-1">{sectionName}</div>
+        <div className="text-s text-gray-500 mb-1">{sectionDetails}</div>
         {location && (
-          <div className="text-xs text-gray-500 mb-1">📍 {location}</div>
+          <div className="text-s text-gray-500 mb-1">📍 {location}</div>
         )}
         {/* <div className="text-xs text-gray-500">รายละเอียดโครงการ</div> */}
       </div>
