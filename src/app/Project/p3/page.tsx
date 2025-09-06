@@ -4,28 +4,37 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContactUs from '@/components/ContactUs';
 import GoogleMapSection from '@/components/GoogleMapSection';
+import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP3() {
+  const propertyImages = [
+    '/properties/P3/20250906_112831850_iOS.jpg',
+    '/properties/P3/20250906_112919126_iOS.jpg',
+    '/properties/P3/20250906_112921359_iOS.jpg',
+    '/properties/P3/20250906_112923524_iOS.jpg',
+    '/properties/P3/20250906_112925779_iOS.jpg',
+    '/properties/P3/20250906_112927818_iOS.jpg',
+    '/properties/P3/20250906_112930657_iOS.jpg',
+    '/properties/P3/20250906_112935894_iOS.jpg',
+    '/properties/P3/20250906_112942066_iOS.jpg',
+    '/properties/P3/20250906_112951326_iOS.jpg',
+    '/properties/P3/20250906_112953821_iOS.jpg',
+    '/properties/P3/20250906_112955883_iOS.jpg',
+    '/properties/P3/20250906_112959099_iOS.jpg',
+    '/properties/P3/20250906_113003125_iOS.jpg',
+    '/properties/P3/20250906_113013668_iOS.jpg',
+  ];
+
   return (
     <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
-      <Header />
+      <Header isHome={false} />
       <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
-        >
-          ← กลับสู่หน้าหลัก
-        </Link>
-
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <Image
-            src="/public/next.svg"
+          <PropertySlideshow
+            images={propertyImages}
             alt="ท่ารั้วแลนด์ 3"
-            width={800}
-            height={400}
-            className="w-full object-cover"
+            className="w-full"
           />
-
           <div className="p-6">
             <div className="flex gap-2 mb-4">
               <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">ใหม่</span>
@@ -33,9 +42,17 @@ export default function ProjectP3() {
               <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">Smart Home</span>
               <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการแนะนำ</span>
             </div>
-
-            <h1 className="text-3xl font-bold mb-4">ท่ารั้วแลนด์ 3</h1>
-
+            <div className="flex items-center mb-4 gap-3">
+              <Image
+                src="/properties/P2/TL_logo.png"
+                alt="TL1"
+                width={50}
+                height={0}
+                style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
+                className="object-cover border border-gray-300 rounded"
+              />
+              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 2</h1>
+            </div>
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">รายละเอียดโครงการ</h3>
@@ -46,7 +63,6 @@ export default function ProjectP3() {
                 <p className="text-red-600 font-semibold mb-2">ราคา: 2,890,000 บาท</p>
                 <p className="text-green-600 text-sm">💡 Smart Home พร้อมอยู่</p>
               </div>
-
               <div>
                 <h3 className="text-lg font-semibold mb-2">สิ่งอำนวยความสะดวก</h3>
                 <ul className="text-gray-600 space-y-1">
@@ -59,7 +75,6 @@ export default function ProjectP3() {
                 </ul>
               </div>
             </div>
-
             <div className="bg-green-50 border border-green-200 p-4 rounded-lg mb-4">
               <h3 className="text-lg font-semibold mb-2 text-green-800">🎁 PROMOTION</h3>
               <p className="text-green-700 mb-2">โอนพรี ไม่มีค่าธรรมเนียมใดๆ ไม่มีส่วนกลาง พร้อมของแถม:</p>

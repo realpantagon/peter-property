@@ -4,36 +4,58 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContactUs from '@/components/ContactUs';
 import GoogleMapSection from '@/components/GoogleMapSection';
+import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP2() {
+  const propertyImages = [
+    '/properties/P2/20250906_111827569_iOS.jpg',
+    '/properties/P2/20250906_111832308_iOS.jpg',
+    '/properties/P2/20250906_111834893_iOS.jpg',
+    '/properties/P2/20250906_111837009_iOS.jpg',
+    '/properties/P2/20250906_111839318_iOS.jpg',
+    '/properties/P2/20250906_111841553_iOS.jpg',
+    '/properties/P2/20250906_111843783_iOS.jpg',
+    '/properties/P2/20250906_111848402_iOS.jpg',
+    '/properties/P2/20250906_111850668_iOS.jpg',
+    '/properties/P2/20250906_111903360_iOS.jpg',
+    '/properties/P2/20250906_111907659_iOS.jpg',
+    '/properties/P2/20250906_111910069_iOS.jpg',
+    '/properties/P2/20250906_111912405_iOS.jpg',
+    '/properties/P2/20250906_111914669_iOS.jpg',
+    '/properties/P2/20250906_112041546_iOS.jpg',
+    '/properties/P2/20250906_112051814_iOS.jpg',
+    '/properties/P2/20250906_112057470_iOS.jpg',
+    '/properties/P2/20250906_112137506_iOS.jpg',
+    '/properties/P2/20250906_112142611_iOS.jpg',
+    '/properties/P2/20250906_112316338_iOS.jpg',
+  ];
+
   return (
     <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
-      <Header />
+      <Header isHome={false} />
       <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
-        >
-          ← กลับสู่หน้าหลัก
-        </Link>
-
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <Image
-            src="/public/globe.svg"
+          <PropertySlideshow
+            images={propertyImages}
             alt="ท่ารั้วแลนด์ 2"
-            width={800}
-            height={400}
-            className="w-full object-cover"
+            className="w-full"
           />
-
           <div className="p-6">
             <div className="flex gap-2 mb-4">
               <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">พร้อมขาย</span>
               <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการยอดนิยม</span>
             </div>
-
-            <h1 className="text-3xl font-bold mb-4">ท่ารั้วแลนด์ 2</h1>
-
+            <div className="flex items-center mb-4 gap-3">
+              <Image
+              src="/properties/P2/TL_logo.png"
+              alt="TL1"
+              width={50}
+              height={0}
+              style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
+              className="object-cover border border-gray-300 rounded"
+              />
+              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 2</h1>
+            </div>
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">รายละเอียดโครงการ</h3>
@@ -44,7 +66,6 @@ export default function ProjectP2() {
                 <p className="text-red-600 font-semibold mb-2">ราคา: 2.9 - 3.19 ล้านบาท</p>
                 <p className="text-green-600 text-sm">ห่างเซ็นทรัลเฟสติวัล 6.7 กม. (12 นาที)</p>
               </div>
-
               <div>
                 <h3 className="text-lg font-semibold mb-2">สิ่งอำนวยความสะดวก</h3>
                 <ul className="text-gray-600 space-y-1">
@@ -56,7 +77,6 @@ export default function ProjectP2() {
                 </ul>
               </div>
             </div>
-
             <div className="bg-green-50 border border-green-200 p-4 rounded-lg mb-4">
               <h3 className="text-lg font-semibold mb-2 text-green-800">🎁 PROMOTION</h3>
               <p className="text-green-700 mb-2">โอนพรี ไม่มีค่าธรรมเนียมใดๆ ไม่มีส่วนกลาง พร้อมของแถม:</p>

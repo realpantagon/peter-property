@@ -1,29 +1,28 @@
 import Footer from '@/components/Footer';
 import Header from '../../../components/Header';
-import Image from 'next/image';
-import Link from 'next/link';
 import ContactUs from '@/components/ContactUs';
 import GoogleMapSection from '@/components/GoogleMapSection';
+import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP4() {
+  const propertyImages = [
+    '/properties/P4/20250906_115111550_iOS.jpg',
+    '/properties/P4/20250906_115115285_iOS.jpg',
+    '/properties/P4/20250906_115119953_iOS.jpg',
+    '/properties/P4/20250906_115125413_iOS.jpg',
+    '/properties/P4/20250906_115140135_iOS.jpg',
+    '/properties/P4/20250906_115143665_iOS.jpg',
+  ];
+
   return (
     <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
-      <Header />
+      <Header isHome={false} />
       <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
-        >
-          ← กลับสู่หน้าหลัก
-        </Link>
-
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <Image
-            src="/public/vercel.svg"
+          <PropertySlideshow
+            images={propertyImages}
             alt="โครงการแม่ริมบ้านสวย"
-            width={800}
-            height={400}
-            className="w-full object-cover"
+            className="w-full"
           />
 
           <div className="p-6">

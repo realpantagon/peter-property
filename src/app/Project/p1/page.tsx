@@ -4,26 +4,44 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ContactUs from '@/components/ContactUs';
 import GoogleMapSection from '@/components/GoogleMapSection';
+import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP1() {
+  const propertyImages = [
+    '/properties/P1/20250906_105604356_iOS.jpg',
+    '/properties/P1/20250906_105609464_iOS.jpg',
+    '/properties/P1/20250906_105612057_iOS.jpg',
+    '/properties/P1/20250906_105614562_iOS.jpg',
+    '/properties/P1/20250906_105617424_iOS.jpg',
+    '/properties/P1/20250906_105619705_iOS.jpg',
+    '/properties/P1/20250906_105622051_iOS.jpg',
+    '/properties/P1/20250906_105624557_iOS.jpg',
+    '/properties/P1/20250906_105626944_iOS.jpg',
+    '/properties/P1/20250906_105629322_iOS.jpg',
+    '/properties/P1/20250906_105632493_iOS.jpg',
+    '/properties/P1/20250906_105635162_iOS.jpg',
+    '/properties/P1/20250906_105637419_iOS.jpg',
+    '/properties/P1/20250906_105639731_iOS.jpg',
+    '/properties/P1/20250906_105641882_iOS.jpg',
+    // '/properties/P1/20250906_105644078_iOS.jpg',
+    '/properties/P1/20250906_105646158_iOS.jpg',
+    '/properties/P1/20250906_105648311_iOS.jpg',
+    '/properties/P1/20250906_105650472_iOS.jpg',
+    '/properties/P1/20250906_105652591_iOS.jpg',
+    '/properties/P1/20250906_105654841_iOS.jpg',
+    '/properties/P1/20250906_105656892_iOS.jpg',
+    '/properties/P1/20250906_105658967_iOS.jpg',
+  ];
+
   return (
     <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
-      <Header />
+      <Header isHome={false} />
       <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
-        >
-          ← กลับสู่หน้าหลัก
-        </Link>
-
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <Image
-            src="/public/file.svg"
+          <PropertySlideshow
+            images={propertyImages}
             alt="The Nest Maerim"
-            width={800}
-            height={400}
-            className="w-full object-cover"
+            className="w-full"
           />
 
           <div className="p-6">
@@ -32,7 +50,17 @@ export default function ProjectP1() {
               {/* <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">พร้อมขาย</span> */}
               <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการใหม่</span>
             </div>
-
+            <div className="flex items-center mb-4 gap-3">
+              <Image
+                src="/properties/P1/TN_logo.png"
+                alt="The Nest Maerim"
+                width={50}
+                height={0}
+                style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
+                className="object-cover border border-gray-300 rounded"
+              />
+              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 2</h1>
+            </div>
             <h1 className="text-3xl font-bold mb-4">The Nest Maerim</h1>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">

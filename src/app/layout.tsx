@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Kanit,IBM_Plex_Sans_Thai } from "next/font/google";
+import { Kanit,IBM_Plex_Sans_Thai,Tinos } from "next/font/google";
 import "./globals.css";
 
 const kanit = Kanit({
@@ -13,6 +13,12 @@ const ibm = IBM_Plex_Sans_Thai({
   subsets: ["latin", "thai"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   variable: "--font-ibm",
+});
+
+const tinos = Tinos({
+  subsets: ["latin"],
+  weight: ["400","700"],
+  variable: "--font-tinos",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +47,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="th">
-      <body className={`${kanit.variable} ${ibm.variable}`}>
+      <body className={`${kanit.variable} ${ibm.variable} ${tinos.variable}`}>
         {children}
       </body>
     </html>
