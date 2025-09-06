@@ -1,28 +1,31 @@
+import Footer from '@/components/Footer';
 import Header from '../../../components/Header';
 import Image from 'next/image';
 import Link from 'next/link';
+import ContactUs from '@/components/ContactUs';
+import GoogleMapSection from '@/components/GoogleMapSection';
 
 export default function ProjectP3() {
   return (
     <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
       <Header />
       <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
         >
           ← กลับสู่หน้าหลัก
         </Link>
-        
+
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <Image 
-            src="/public/next.svg" 
-            alt="ท่ารั้วแลนด์ 3" 
-            width={800} 
-            height={400} 
+          <Image
+            src="/public/next.svg"
+            alt="ท่ารั้วแลนด์ 3"
+            width={800}
+            height={400}
             className="w-full object-cover"
           />
-          
+
           <div className="p-6">
             <div className="flex gap-2 mb-4">
               <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">ใหม่</span>
@@ -30,9 +33,9 @@ export default function ProjectP3() {
               <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">Smart Home</span>
               <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการแนะนำ</span>
             </div>
-            
+
             <h1 className="text-3xl font-bold mb-4">ท่ารั้วแลนด์ 3</h1>
-            
+
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">รายละเอียดโครงการ</h3>
@@ -43,7 +46,7 @@ export default function ProjectP3() {
                 <p className="text-red-600 font-semibold mb-2">ราคา: 2,890,000 บาท</p>
                 <p className="text-green-600 text-sm">💡 Smart Home พร้อมอยู่</p>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-semibold mb-2">สิ่งอำนวยความสะดวก</h3>
                 <ul className="text-gray-600 space-y-1">
@@ -56,7 +59,7 @@ export default function ProjectP3() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="bg-green-50 border border-green-200 p-4 rounded-lg mb-4">
               <h3 className="text-lg font-semibold mb-2 text-green-800">🎁 PROMOTION</h3>
               <p className="text-green-700 mb-2">โอนพรี ไม่มีค่าธรรมเนียมใดๆ ไม่มีส่วนกลาง พร้อมของแถม:</p>
@@ -79,18 +82,18 @@ export default function ProjectP3() {
                 </ul>
               </div>
             </div>
-            
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">ข้อมูลติดต่อ</h3>
-              <p className="text-gray-600">Line ID: prachan2550</p>
-              <p className="text-gray-600">อีเมล: info@peterproperty.com</p>
-            </div>
+            <GoogleMapSection
+              lat={18.796216}
+              lng={99.080786}
+              title="แผนที่โครงการ"
+              link="https://maps.app.goo.gl/mSqx4qmiikyjzzM98"
+              zoom={16}
+            />
+            <ContactUs />
           </div>
         </div>
       </section>
-      <footer className="w-full text-center py-4 text-gray-500 text-sm border-t mt-8">
-        Powered by © 2025
-      </footer>
+      <Footer />
     </main>
   );
 }

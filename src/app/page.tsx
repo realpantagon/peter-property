@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import PropertyCard from '../components/PropertyCard';
 import PhotoSlideshow from '../components/PhotoSlideshow';
+import Footer from '@/components/Footer';
 
 
 const propertyCards = [
@@ -22,7 +23,7 @@ const propertyCards = [
     sectionName: 'ท่ารั้วแลนด์ 2',
     sectionDetails: 'บ้านเดี่ยว 2 ชั้น 4 ห้องนอน 3 ห้องน้ำ จอดรถ 2 คัน',
     location: 'ตำบลสันปูเลย ดอยสะเก็ด',
-    isNew: true,
+    isNew: false,
     isAvailable: true,
   },
   {
@@ -70,9 +71,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-        <footer className="w-full text-center py-4 text-gray-500 text-sm border-t border-neutral-200 mt-8">
-          Powered by Peter Property &copy; 2025
-        </footer>
+      <Footer />
     </main>
   );
 }
