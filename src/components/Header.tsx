@@ -8,7 +8,7 @@ export default function Header({ isHome = false }: { isHome?: boolean }) {
             <header className="flex items-center justify-center px-4 py-6 bg-[#faf9f6] shadow-sm">
                 <div className="flex items-center gap-4">
                     <Image
-                        src="/icons/Property_logo_5.png"
+                        src="/icons/Property_logo_6.png"
                         alt="Peter Property Logo"
                         width={40}
                         height={40}

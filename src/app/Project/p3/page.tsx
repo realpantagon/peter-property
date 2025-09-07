@@ -51,7 +51,7 @@ export default function ProjectP3() {
                 style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
                 className="object-cover border border-gray-300 rounded"
               />
-              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 2</h1>
+              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 3</h1>
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
