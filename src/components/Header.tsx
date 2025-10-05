@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Header({ isHome = false }: { isHome?: boolean }) {
     return (
         <Link href="/">
-            <header className="flex items-center justify-center px-4 py-6 bg-[#faf9f6] shadow-sm">
+            <header className="flex items-center justify-center px-4 py-6 bg-bg-[#0c0a08] shadow-sm">
                 <div className="flex items-center gap-4">
                     <Image
                         src="/icons/Property_logo_6.png"

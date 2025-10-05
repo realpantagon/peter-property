@@ -7,13 +7,21 @@ interface PropertySlideshowProps {
   images: string[];
   alt: string;
   className?: string;
+  tone?: 'light' | 'dark';
 }
 
-export default function PropertySlideshow({ images, alt, className = '' }: PropertySlideshowProps) {
+export default function PropertySlideshow({
+  images,
+  alt,
+  className = '',
+  tone = 'light',
+}: PropertySlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+
+  const isDark = tone === 'dark';
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -67,7 +75,13 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
   }, []);
 
   return (
-    <div className={`relative w-full bg-gray-100 rounded-lg overflow-hidden ${className}`}>
+    <div
+      className={`relative w-full overflow-hidden rounded-[28px] ${
+        isDark
+          ? 'border border-white/10 bg-white/5 backdrop-blur'
+          : 'bg-gray-100'
+      } ${className}`}
+    >
       {/* Main Image Container */}
       <div 
         className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden"
@@ -86,15 +100,23 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
         
         {/* Loading overlay */}
         {isLoading && (
-          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-            <div className="text-gray-500">Loading...</div>
+          <div
+            className={`absolute inset-0 flex items-center justify-center animate-pulse ${
+              isDark ? 'bg-white/10 text-white/60' : 'bg-gray-200 text-gray-500'
+            }`}
+          >
+            <div>Loading...</div>
           </div>
         )}
 
         {/* Navigation Arrows - Hidden on mobile, shown on larger screens */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden sm:flex items-center justify-center hover:bg-black/70 transition-colors z-10"
+          className={`absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full transition-colors z-10 sm:flex ${
+            isDark
+              ? 'bg-white/10 text-white hover:bg-white/20'
+              : 'bg-black/50 text-white hover:bg-black/70'
+          }`}
           aria-label="Previous image"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +126,11 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
         
         <button
           onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden sm:flex items-center justify-center hover:bg-black/70 transition-colors z-10"
+          className={`absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full transition-colors z-10 sm:flex ${
+            isDark
+              ? 'bg-white/10 text-white hover:bg-white/20'
+              : 'bg-black/50 text-white hover:bg-black/70'
+          }`}
           aria-label="Next image"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,13 +139,21 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
         </button>
 
         {/* Image Counter */}
-        <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+        <div
+          className={`absolute top-5 right-5 rounded-full px-3 py-1 text-sm ${
+            isDark ? 'bg-black/50 text-white/90 backdrop-blur' : 'bg-black/50 text-white'
+          }`}
+        >
           {currentIndex + 1} / {images.length}
         </div>
 
         {/* Swipe Indicator for Mobile */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:hidden">
-          <div className="flex items-center space-x-2 text-white bg-black/50 px-3 py-1 rounded-full text-xs">
+          <div
+            className={`flex items-center space-x-2 rounded-full px-3 py-1 text-xs ${
+              isDark ? 'bg-black/40 text-white/80 backdrop-blur' : 'bg-black/50 text-white'
+            }`}
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
@@ -132,16 +166,24 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center items-center space-x-2  px-4 bg-white">
+      <div
+        className={`flex items-center justify-center space-x-2 px-4 ${
+          isDark ? 'bg-white/5 backdrop-blur' : 'bg-white'
+        }`}
+      >
         <div className="flex space-x-1 overflow-x-auto max-w-full py-2 px-2">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-200 flex-shrink-0 ${
+              className={`flex-shrink-0 rounded-full transition-all duration-200 ${
                 index === currentIndex
-                  ? 'bg-blue-600 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? isDark
+                    ? 'h-2 w-4 scale-125 bg-amber-400'
+                    : 'h-2 w-4 scale-125 bg-blue-600'
+                  : isDark
+                    ? 'h-2 w-2 bg-white/30 hover:bg-white/50'
+                    : 'h-2 w-2 bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to image ${index + 1}`}
             />
@@ -150,16 +192,24 @@ export default function PropertySlideshow({ images, alt, className = '' }: Prope
       </div>
 
       {/* Thumbnail strip for larger screens */}
-      <div className="hidden md:block bg-gray-50 p-2">
+      <div
+        className={`hidden p-2 md:block ${
+          isDark ? 'bg-white/5 backdrop-blur' : 'bg-gray-50'
+        }`}
+      >
         <div className="flex space-x-2 overflow-x-auto py-2">
           {images.map((image, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`relative w-20 h-16 flex-shrink-0 rounded overflow-hidden transition-all duration-200 ${
+              className={`relative h-16 w-20 flex-shrink-0 overflow-hidden rounded transition-all duration-200 ${
                 index === currentIndex
-                  ? 'ring-2 ring-blue-600 scale-105'
-                  : 'hover:ring-2 hover:ring-gray-400'
+                  ? isDark
+                    ? 'ring-2 ring-amber-400/80 scale-105'
+                    : 'ring-2 ring-blue-600 scale-105'
+                  : isDark
+                    ? 'hover:ring-2 hover:ring-white/50'
+                    : 'hover:ring-2 hover:ring-gray-400'
               }`}
             >
               <Image

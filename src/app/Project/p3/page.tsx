@@ -1,13 +1,13 @@
 import Footer from '@/components/Footer';
 import Header from '../../../components/Header';
 import Image from 'next/image';
-import Link from 'next/link';
 import ContactUs from '@/components/ContactUs';
 import GoogleMapSection from '@/components/GoogleMapSection';
 import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP3() {
   const propertyImages = [
+    '/properties/P3/S__90693634.jpg',
     '/properties/P3/20250906_112831850_iOS.jpg',
     '/properties/P3/20250906_112919126_iOS.jpg',
     '/properties/P3/20250906_112921359_iOS.jpg',
@@ -26,46 +26,50 @@ export default function ProjectP3() {
   ];
 
   return (
-    <main className="font-[var(--font-ibm)] bg-[#faf9f6] min-h-screen">
+    <main className="font-[var(--font-ibm)] relative min-h-screen overflow-hidden bg-[#0c0a08] text-[#f7f2e7]">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(217,180,87,0.16),transparent_55%)]" />
+        <div className="absolute -left-32 top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -right-40 bottom-[-5rem] h-96 w-96 rounded-full bg-[#d9b457]/20 blur-3xl" />
+      </div>
       <Header isHome={false} />
-      <section className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 py-8">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <PropertySlideshow
-            images={propertyImages}
-            alt="ท่ารั้วแลนด์ 3"
-            className="w-full"
-          />
-          <div className="p-6">
-            <div className="flex gap-2 mb-4">
-              <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">ใหม่</span>
-              <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">พร้อมขาย</span>
-              <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded">Smart Home</span>
-              <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">โครงการแนะนำ</span>
+      <section className="px-4 pt-2 pb-20 sm:px-8 md:px-16 lg:px-32 xl:px-64">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-white/10 bg-[#14100d]/80 shadow-[0_55px_120px_-60px_rgba(0,0,0,0.9)] backdrop-blur">
+          <PropertySlideshow images={propertyImages} alt="ท่ารั้วแลนด์ 3" tone="dark" />
+
+          <div className="space-y-10 px-6 py-10 text-white/80 sm:px-10">
+            <div className="flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.35em]">
+              <span className="rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 px-4 py-1 text-[#0a0502]">ใหม่</span>
+              <span className="rounded-full bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 px-4 py-1 text-[#020805]">พร้อมขาย</span>
+              <span className="rounded-full border border-white/20 px-4 py-1 text-white/70">Smart Home</span>
+              <span className="rounded-full border border-white/20 px-4 py-1 text-white/70">โครงการแนะนำ</span>
             </div>
-            <div className="flex items-center mb-4 gap-3">
+
+            <div className="flex flex-wrap items-center gap-4">
               <Image
                 src="/properties/P2/TL_logo.png"
-                alt="TL1"
-                width={50}
-                height={0}
-                style={{ height: '2.25rem', width: 'auto' }} // 2.25rem = text-3xl
-                className="object-cover border border-gray-300 rounded"
+                alt="ท่ารั้วแลนด์ 3 โลโก้โครงการ"
+                width={56}
+                height={56}
+                className="h-14 w-auto rounded-2xl border border-white/15 bg-white/10 p-2 object-contain"
               />
-              <h1 className="text-3xl font-bold">ท่ารั้วแลนด์ 3</h1>
+              <h1 className="text-4xl font-light text-white sm:text-5xl">ท่ารั้วแลนด์ 3</h1>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">รายละเอียดโครงการ</h3>
-                <p className="text-gray-600 mb-2">บ้านเดี่ยว Smart Home 4 ห้องนอน 3 ห้องน้ำ</p>
-                <p className="text-gray-600 mb-2">📍 ห่างอรสิรินโครงการ 6 เพียง 300 เมตร</p>
-                <p className="text-gray-600 mb-2">พื้นที่ใช้สอย: 180 ตารางเมตร</p>
-                <p className="text-gray-600 mb-2">ที่ดิน: 50 ตารางวา</p>
-                <p className="text-red-600 font-semibold mb-2">ราคา: 2,890,000 บาท</p>
-                <p className="text-green-600 text-sm">💡 Smart Home พร้อมอยู่</p>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="space-y-3 text-sm text-white/70">
+                <h3 className="text-lg font-semibold tracking-[0.2em] text-white/80">รายละเอียดโครงการ</h3>
+                <p>บ้านเดี่ยว Smart Home 4 ห้องนอน 3 ห้องน้ำ</p>
+                <p>📍 ห่างอรสิรินโครงการ 6 เพียง 300 เมตร</p>
+                <p>พื้นที่ใช้สอย: 180 ตารางเมตร</p>
+                <p>ที่ดิน: 50 ตารางวา</p>
+                <p className="text-amber-200">ราคา: 2,890,000 บาท</p>
+                <p className="text-emerald-200/90">💡 Smart Home พร้อมอยู่</p>
               </div>
+
               <div>
-                <h3 className="text-lg font-semibold mb-2">สิ่งอำนวยความสะดวก</h3>
-                <ul className="text-gray-600 space-y-1">
+                <h3 className="text-lg font-semibold tracking-[0.2em] text-white/80">สิ่งอำนวยความสะดวก</h3>
+                <ul className="mt-4 space-y-2 text-sm text-white/65">
                   <li>• จอดรถยนต์ 2 คัน</li>
                   <li>• ห่างวงแหวน 3 เพียง 1.8 กม.</li>
                   <li>• เข้าออกได้ 3 ทาง</li>
@@ -75,11 +79,12 @@ export default function ProjectP3() {
                 </ul>
               </div>
             </div>
-            <div className="bg-green-50 border border-green-200 p-4 rounded-lg mb-4">
-              <h3 className="text-lg font-semibold mb-2 text-green-800">🎁 PROMOTION</h3>
-              <p className="text-green-700 mb-2">โอนพรี ไม่มีค่าธรรมเนียมใดๆ ไม่มีส่วนกลาง พร้อมของแถม:</p>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-green-700">
-                <ul>
+
+            <div className="rounded-[28px] border border-emerald-400/30 bg-emerald-500/10 p-6 text-sm text-emerald-100 shadow-[0_35px_90px_-60px_rgba(16,185,129,0.45)]">
+              <h3 className="text-lg font-semibold tracking-[0.3em] text-emerald-50">🎁 PROMOTION</h3>
+              <p className="mt-3 text-emerald-50/90">โอนพรี ไม่มีค่าธรรมเนียมใดๆ ไม่มีส่วนกลาง พร้อมของแถม:</p>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <ul className="space-y-2">
                   <li>• ค่าธรรมเนียมโอนกรรมสิทธิ์</li>
                   <li>• มิเตอร์ไฟฟ้า + น้ำประปา</li>
                   <li>• เคาท์เตอร์ครัว + ซิงค์ล้างจาน</li>
@@ -87,7 +92,7 @@ export default function ProjectP3() {
                   <li>• ฉนวนกันความร้อน</li>
                   <li>• มุ้งลวดทั้งหลัง</li>
                 </ul>
-                <ul>
+                <ul className="space-y-2">
                   <li>• เพิ่มเคาน์เตอร์ครัวนอกบ้าน</li>
                   <li>• สนามหญ้ารอบบ้าน</li>
                   <li>• ปูกระเบื้องรอบบ้าน</li>
@@ -97,14 +102,17 @@ export default function ProjectP3() {
                 </ul>
               </div>
             </div>
-            <GoogleMapSection
-              lat={18.796216}
-              lng={99.080786}
-              title="แผนที่โครงการ"
-              link="https://maps.app.goo.gl/mSqx4qmiikyjzzM98"
-              zoom={16}
-            />
-            <ContactUs />
+
+            <div className="space-y-8">
+              <GoogleMapSection
+                lat={18.796216}
+                lng={99.080786}
+                title="แผนที่โครงการ"
+                link="https://maps.app.goo.gl/mSqx4qmiikyjzzM98"
+                zoom={16}
+              />
+              <ContactUs />
+            </div>
           </div>
         </div>
       </section>
