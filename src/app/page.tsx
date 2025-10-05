@@ -66,7 +66,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-3 pt-4">
-              <span className="text-[12px] uppercase tracking-[0.55em] text-white/60 ">โครงการแนะนำพิเศษ</span>
+              <span className="text-[12px] uppercase  text-white/60 ">โครงการแนะนำพิเศษ</span>
               <h2 className="text-3xl font-light text-white sm:text-4xl py-2">บ้านที่คัดสรรเพื่อการอยู่อาศัยอย่างมีคุณภาพ</h2>
               <p className="text-base text-white/60">
                 บ้านที่เลือกสรรมาอย่างตั้งใจ ผสมผสานการออกแบบที่ลงตัวกับบรรยากาศธรรมชาติ

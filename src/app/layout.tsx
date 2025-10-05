@@ -80,8 +80,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="th">
-      <body className={`${kanit.variable} ${ibm.variable} ${tinos.variable}`}>
+    <html lang="th" className="bg-[#0c0a08]">
+      <body className={`${kanit.variable} ${ibm.variable} ${tinos.variable} bg-[#0c0a08] text-[#f7f2e7]`}>
         {children}
       </body>
     </html>
