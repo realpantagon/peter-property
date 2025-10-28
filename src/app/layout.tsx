@@ -22,7 +22,8 @@ const tinos = Tinos({
 });
 
 export const metadata: Metadata = {
-  title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
+  metadataBase: new URL('https://peterproperty.adappts.com'),
+  title: "บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตราฐาน | Peter Property",
   description: "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่ แม่ริม ดอยสะเก็ด",
   keywords: [
     "บ้าน", "อสังหา", "ขายที่ดิน", "โครงการใหม่", "บ้านสร้างใหม่", 
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Peter Property" }],
   creator: "Peter Property",
   publisher: "Peter Property",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   robots: {
     index: true,
     follow: true,
@@ -47,6 +53,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://peterproperty.adappts.com",
   },
+  manifest: "/manifest.json",
   openGraph: {
     title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
     description: "ขายบ้าน อสังหาโครงการใหม่ บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน เชียงใหม่ พร้อมอยู่ ราคาดี",
@@ -79,8 +86,40 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Peter Property",
+    "description": "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่",
+    "url": "https://peterproperty.adappts.com",
+    "logo": "https://peterproperty.adappts.com/properties/P1/20250906_105639731_iOS.jpg",
+    "areaServed": {
+      "@type": "City",
+      "name": "Chiang Mai",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Thailand"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chiang Mai",
+      "addressCountry": "TH"
+    },
+    "sameAs": [
+      "https://peterproperty.adappts.com"
+    ]
+  };
+
   return (
     <html lang="th" className="bg-[#0c0a08]">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${kanit.variable} ${ibm.variable} ${tinos.variable} bg-[#0c0a08] text-[#f7f2e7]`}>
         {children}
       </body>

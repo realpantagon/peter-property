@@ -1,0 +1,10 @@
+# Cloudflare Pages Redirects
+
+# Redirect non-trailing slash URLs to trailing slash (SEO best practice)
+/Project/p1  /Project/p1/  301
+/Project/p2  /Project/p2/  301
+/Project/p3  /Project/p3/  301
+/Project/p4  /Project/p4/  301
+
+# Handle 404s
+/*  /404.html  404

@@ -1,0 +1,34 @@
+{
+  "name": "Peter Property - บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน",
+  "short_name": "Peter Property",
+  "description": "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a08",
+  "theme_color": "#d4a574",
+  "orientation": "portrait-primary",
+  "lang": "th",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/properties/P1/20250906_105639731_iOS.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg"
+    }
+  ]
+}

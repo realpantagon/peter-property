@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pages:build": "pnpm build",
+    "pages:deploy": "wrangler pages deploy out",
+    "pages:dev": "wrangler pages dev out --port 8788"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.13",
@@ -24,6 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vercel": "^48.6.0",
+    "wrangler": "^4.45.1"
   }
 }
