@@ -7,9 +7,11 @@ import PropertySlideshow from '@/components/PropertySlideshow';
 
 export default function ProjectP3() {
   const propertyImages = [
+    '/properties/P3/10_28_1.jpg',
+    '/properties/P3/10_28_2.jpg',
+    '/properties/P3/10_28_3.jpg',
     '/properties/P3/S__90693634.jpg',
     '/properties/P3/20250906_112831850_iOS.jpg',
-    '/properties/P3/20250906_112919126_iOS.jpg',
     '/properties/P3/20250906_112921359_iOS.jpg',
     '/properties/P3/20250906_112923524_iOS.jpg',
     '/properties/P3/20250906_112925779_iOS.jpg',

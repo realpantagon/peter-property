@@ -8,6 +8,17 @@ import ContactUs from '@/components/ContactUs';
 
 const propertyCards = [
   {
+    id: 'p3',
+    title: 'โครงการแนะนำ',
+    img: '/properties/P3/10_28_1.jpg',
+    sectionName: 'ท่ารั้วแลนด์ 3',
+    sectionDetails: 'บ้านเดี่ยว Smart Home 4 ห้องนอน 3 ห้องน้ำ',
+    location: 'ใกล้อรสิรินโครงการ 6',
+    isNew: true,
+    isAvailable: true,
+    tags: ['SMART HOME'],
+  },
+  {
     id: 'p1',
     title: 'โครงการใหม่',
     img: '/properties/P1/20250906_105639731_iOS.jpg',
@@ -26,17 +37,6 @@ const propertyCards = [
     location: 'ตำบลสันปูเลย ดอยสะเก็ด',
     isNew: false,
     isAvailable: false,
-  },
-  {
-    id: 'p3',
-    title: 'โครงการแนะนำ',
-    img: '/properties/P3/S__90693634.jpg',
-    sectionName: 'ท่ารั้วแลนด์ 3',
-    sectionDetails: 'บ้านเดี่ยว Smart Home 4 ห้องนอน 3 ห้องน้ำ',
-    location: 'ใกล้อรสิรินโครงการ 6',
-    isNew: true,
-    isAvailable: true,
-    tags: ['SMART HOME'],
   },
   {
     id: 'p4',
