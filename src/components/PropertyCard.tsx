@@ -100,7 +100,7 @@ export default function PropertyCard({
           </div>
         )}
         <div className="space-y-2">
-          <div className="text-xs uppercase tracking-[0.45em] text-amber-200/70">{sectionName}</div>
+          <div className="text-xs uppercase text-amber-200/70">{sectionName}</div>
           <div className="text-2xl font-light text-white">{sectionDetails}</div>
         </div>
         {location && (

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 interface PropertySlideshowProps {
@@ -18,26 +18,31 @@ export default function PropertySlideshow({
 }: PropertySlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
   const isDark = tone === 'dark';
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [images.length]);
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
-  };
+  }, [images.length]);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index);
-  };
+  }, []);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -67,12 +72,18 @@ export default function PropertySlideshow({
 
   // Auto-play functionality (optional)
   useEffect(() => {
+    if (!hasMounted || images.length <= 1) {
+      return;
+    }
+
     const interval = setInterval(() => {
       nextSlide();
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [hasMounted, images.length, nextSlide]);
+
+  const showOverlay = hasMounted && isLoading;
 
   return (
     <div
@@ -95,11 +106,15 @@ export default function PropertySlideshow({
           fill
           className="object-cover transition-opacity duration-300"
           priority={currentIndex === 0}
-          onLoadingComplete={() => setIsLoading(false)}
+          onLoadingComplete={() => {
+            if (hasMounted) {
+              setIsLoading(false);
+            }
+          }}
         />
         
         {/* Loading overlay */}
-        {isLoading && (
+        {showOverlay && (
           <div
             className={`absolute inset-0 flex items-center justify-center animate-pulse ${
               isDark ? 'bg-white/10 text-white/60' : 'bg-gray-200 text-gray-500'

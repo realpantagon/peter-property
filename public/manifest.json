@@ -21,6 +21,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/Property_logo_6.png",
+      "sizes": "2000x2000",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["business", "lifestyle"],
