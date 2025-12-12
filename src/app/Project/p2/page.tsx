@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords: [
     "ท่ารั้วแลนด์ 2", "บ้านดอยสะเก็ด", "บ้านเดี่ยวเชียงใหม่", "บ้าน 2 ชั้น",
     "บ้านขายดอยสะเก็ด", "สันปูเลย", "บ้าน 4 ห้องนอน", "house Doi Saket",
-    "Chiang Mai property", "2.9 million", "ready to move"
+    "Chiang Mai property", "3.19 million", "ready to move"
   ],
   openGraph: {
     title: "ท่ารั้วแลนด์ 2 - บ้านเดี่ยว 2 ชั้น ดอยสะเก็ด เชียงใหม่",
@@ -73,7 +73,7 @@ export default function ProjectP2() {
     "offers": {
       "@type": "Offer",
       "availability": "InStock",
-      "price": "2900000-3190000",
+      "price": "3190000",
       "priceCurrency": "THB"
     },
     "image": "https://peterproperty.adappts.com/properties/P2/20250906_111832308_iOS.jpg"
@@ -120,7 +120,7 @@ export default function ProjectP2() {
                   <p>📍 ตำบลสันปูเลย อำเภอดอยสะเก็ด เชียงใหม่</p>
                   <p>พื้นที่ใช้สอย: 200 ตารางเมตร</p>
                   <p>ที่ดิน: 56-64 ตารางวา</p>
-                  <p className="text-amber-200">ราคา: 2.9 - 3.19 ล้านบาท</p>
+                  <p className="text-amber-200">ราคา: 3.19 ล้านบาท</p>
                   <p className="text-emerald-200/90">ห่างเซ็นทรัลเฟสติวัล 6.7 กม. (12 นาที)</p>
                 </div>
 
