@@ -41,8 +41,8 @@ export default function ProjectP3() {
 
           <div className="space-y-10 px-6 py-10 text-white/80 sm:px-10">
             <div className="flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.35em]">
-              <span className="rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 px-4 py-1 text-[#0a0502]">ใหม่</span>
-              <span className="rounded-full bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 px-4 py-1 text-[#020805]">พร้อมขาย</span>
+              {/* <span className="rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 px-4 py-1 text-[#0a0502]">ใหม่</span> */}
+              {/* <span className="rounded-full bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 px-4 py-1 text-[#020805]">พร้อมขาย</span> */}
               <span className="rounded-full border border-white/20 px-4 py-1 text-white/70">Smart Home</span>
               <span className="rounded-full border border-white/20 px-4 py-1 text-white/70">โครงการแนะนำ</span>
             </div>
