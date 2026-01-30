@@ -33,21 +33,21 @@ export default function PropertyCard({
   const badgeConfigs = [
     ...(isNew
       ? [
-          {
-            key: 'new',
-            label: 'ใหม่',
-            variant: 'new' as const,
-          },
-        ]
+        {
+          key: 'new',
+          label: 'ใหม่',
+          variant: 'new' as const,
+        },
+      ]
       : []),
     ...(isAvailable
       ? [
-          {
-            key: 'available',
-            label: 'พร้อมขาย',
-            variant: 'available' as const,
-          },
-        ]
+        {
+          key: 'available',
+          label: 'พร้อมขาย',
+          variant: 'available' as const,
+        },
+      ]
       : []),
     ...tags.map((label, idx) => ({
       key: `tag-${idx}`,
@@ -63,33 +63,31 @@ export default function PropertyCard({
 
   return (
     <div
-      className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[#13100d]/85 text-white shadow-[0_45px_120px_-60px_rgba(0,0,0,0.85)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-400/60 hover:shadow-[0_35px_100px_-45px_rgba(217,180,87,0.45)]"
+      className="group relative flex flex-col overflow-hidden rounded-[28px] border border-white/5 bg-[#181411] text-white shadow-[0_45px_120px_-60px_rgba(0,0,0,0.85)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 hover:shadow-[0_20px_40px_-15px_rgba(184,138,58,0.15)] cursor-pointer"
       onClick={handleClick}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-amber-200/20" />
-      </div>
-      <div className="relative h-[240px] overflow-hidden">
+      <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden">
         <Image
           src={img}
           alt={title}
-          width={400}
-          height={240}
-          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+          fill
+          className="object-cover transition duration-700 ease-out group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#13100d] via-[#13100d]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181411] via-transparent to-transparent opacity-60" />
       </div>
-      <div className="relative flex flex-col gap-5 p-6">
+
+      <div className="relative flex flex-1 flex-col gap-5 p-7">
         {!!badgeConfigs.length && (
-          <div className="flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.35em]">
+          <div className="flex flex-wrap gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-medium">
             {badgeConfigs.map((badge) => {
-              const baseClass = 'inline-flex items-center rounded-full px-4 py-1 transition-colors';
+              const baseClass = 'inline-flex items-center rounded-full px-3 py-1 transition-colors';
               const className =
                 badge.variant === 'new'
-                  ? `${baseClass} bg-gradient-to-r from-[#ff5f8a] to-[#ff1d52] text-[#0a0502]`
+                  ? `${baseClass} bg-gradient-to-r from-[#e11d48] to-[#be123c] text-white shadow-md shadow-rose-900/20`
                   : badge.variant === 'available'
-                  ? `${baseClass} bg-gradient-to-r from-[#13d79e] to-[#0f9f6d] text-[#071a12]`
-                  : `${baseClass} border border-white/20 text-white/70`;
+                    ? `${baseClass} bg-gradient-to-r from-[#059669] to-[#047857] text-white shadow-md shadow-emerald-900/20`
+                    : `${baseClass} border border-white/10 text-white/60 group-hover:border-white/20`;
 
               return (
                 <span key={badge.key} className={className}>
@@ -99,18 +97,22 @@ export default function PropertyCard({
             })}
           </div>
         )}
+
         <div className="space-y-2">
-          <div className="text-xs uppercase text-amber-200/70">{sectionName}</div>
-          <div className="text-2xl font-light text-white">{sectionDetails}</div>
+          <h3 className="text-xs uppercase text-[#b88a3a] tracking-wider font-semibold">{sectionName}</h3>
+          <p className="text-xl sm:text-2xl font-light text-white/95 leading-tight">{sectionDetails}</p>
         </div>
+
         {location && (
-          <div className="text-sm text-white/60">📍 {location}</div>
+          <div className="text-sm text-white/50 flex items-center gap-2">
+            <span className="opacity-70">📍</span> {location}
+          </div>
         )}
-        <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-white/40">
+
+        <div className="mt-auto pt-4 flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/40 group-hover:text-amber-400/80 transition-colors">
           <span>View Residence</span>
-          <span className="transition duration-500 group-hover:text-amber-200">→</span>
+          <span className="transform transition duration-300 group-hover:translate-x-1">→</span>
         </div>
-        {/* <div className="text-xs text-gray-500">รายละเอียดโครงการ</div> */}
       </div>
     </div>
   );
