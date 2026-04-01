@@ -62,9 +62,10 @@ export default function PropertyCard({
   ];
 
   return (
-    <div
-      className="group relative flex flex-col overflow-hidden rounded-[28px] border border-white/5 bg-[#181411] text-white shadow-[0_45px_120px_-60px_rgba(0,0,0,0.85)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 hover:shadow-[0_20px_40px_-15px_rgba(184,138,58,0.15)] cursor-pointer"
+    <button
+      type="button"
       onClick={handleClick}
+      className="group relative flex flex-col overflow-hidden rounded-[28px] border border-white/5 bg-[#181411] text-left text-white shadow-[0_45px_120px_-60px_rgba(0,0,0,0.85)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 hover:shadow-[0_20px_40px_-15px_rgba(184,138,58,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c0a08] cursor-pointer w-full"
     >
       <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden">
         <Image
@@ -114,6 +115,6 @@ export default function PropertyCard({
           <span className="transform transition duration-300 group-hover:translate-x-1">→</span>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

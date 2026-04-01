@@ -113,7 +113,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="th" className="bg-[#0c0a08]">
+    <html lang="th" className="bg-[#0c0a08]" style={{ colorScheme: 'dark' }}>
       <head>
         <script
           type="application/ld+json"

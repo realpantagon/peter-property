@@ -19,6 +19,7 @@ export default function PropertySlideshow({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
@@ -42,6 +43,21 @@ export default function PropertySlideshow({
 
   useEffect(() => {
     setHasMounted(true);
+
+    if (typeof window !== 'undefined') {
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+      setPrefersReducedMotion(media.matches);
+
+      const listener = (event: MediaQueryListEvent) => {
+        setPrefersReducedMotion(event.matches);
+      };
+
+      media.addEventListener('change', listener);
+
+      return () => {
+        media.removeEventListener('change', listener);
+      };
+    }
   }, []);
 
   // Touch handlers for mobile swipe
@@ -72,7 +88,7 @@ export default function PropertySlideshow({
 
   // Auto-play functionality (optional)
   useEffect(() => {
-    if (!hasMounted || images.length <= 1) {
+    if (!hasMounted || images.length <= 1 || prefersReducedMotion) {
       return;
     }
 
@@ -81,7 +97,7 @@ export default function PropertySlideshow({
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, [hasMounted, images.length, nextSlide]);
+  }, [hasMounted, prefersReducedMotion, images.length, nextSlide]);
 
   const showOverlay = hasMounted && isLoading;
 

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "skills": {
+    "programmatic-seo": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "40b8fe29a6c9cb0606e6fa77aff227cf275e3808adf66e5ef69e02dcf60a7303"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "1eef04180a5278a6869fab117c75fa2acf512bfda0a4b16569409b88b7bcb343"
+    },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "computedHash": "56f90ba46b36563bb5461feb8462aed9283e74dfc4cdac2a98c42c4bc86a95be"
+    },
+    "teach-impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "b3b5541bb9b0a260af793c7d79c2db4a436c2cd9384be34a4024c7f28af72e62"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+    }
+  }
+}
