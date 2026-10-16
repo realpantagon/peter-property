@@ -1,35 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --font-kanit: 'Kanit', sans-serif;
-  --font-ibm: 'IBM Plex Sans Thai', sans-serif;
+  --font-display: var(--font-prompt);
+  --font-text: var(--font-prompt);
+
+  /* The brand's own black + gold, matching the Peter Property mark —
+     kept disciplined: flat panels, no glass, no gradients except a
+     legibility scrim, accent only on the one action per screen. */
+  --bg: #0c0a08;
+  --bg-deep: #070605;
+  --surface: #17130f;
+  --surface-2: #211a14;
+  --ink: #f5efe3;
+  --muted: #a89c8a;
+  --tan: #d9cdb6;
+  --accent: #b8863a;
+  --accent-strong: #d4a44f;
+  --accent-ink: #0c0a08;
+
+  /* Status colours — functional, not decorative: one muted hue per state.
+     Sold uses a crimson (blue-leaning red), not a brick/terracotta red,
+     to keep clear of the warm-ink + terracotta "assistant" pairing. */
+  --status-sold: #cc5570;
+  --status-building: #b8863a;
+  --status-available: #6a9c6f;
+}
+
+@keyframes shutter-settle {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+.hero-shutter {
+  animation: shutter-settle 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-shutter {
+    animation: none;
+  }
 }
 
 body {
-  font-family: var(--font-kanit), var(--font-ibm);
-  background-color: #0c0a08;
-  color: #f7f2e7;
+  font-family: var(--font-text), sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
   scroll-behavior: smooth;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   text-wrap: balance;
+  font-family: var(--font-display), serif;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1614;
+  background: var(--bg-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3d342b;
-  border-radius: 5px;
+  background: var(--surface-2);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5c4d3f;
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

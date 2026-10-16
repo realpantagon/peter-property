@@ -1,30 +1,18 @@
 import type { Metadata } from "next";
-import { Kanit,IBM_Plex_Sans_Thai,Tinos } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 
-const kanit = Kanit({
+const prompt = Prompt({
   subsets: ["latin", "thai"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-kanit",
-});
-
-
-const ibm = IBM_Plex_Sans_Thai({
-  subsets: ["latin", "thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-ibm",
-});
-
-const tinos = Tinos({
-  subsets: ["latin"],
-  weight: ["400","700"],
-  variable: "--font-tinos",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-prompt",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://peterproperty.adappts.com'),
-  title: "บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตราฐาน | Peter Property",
-  description: "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่ แม่ริม ดอยสะเก็ด",
+  title: "บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตรฐาน | Peter Property",
+  description: "บ้านเดี่ยวนอกโครงการ เชียงใหม่ แม่ริม ดอยสะเก็ด ออกแบบและสร้างเอง ควบคุมคุณภาพทุกขั้นตอน ดูโครงการที่กำลังก่อสร้างและจองได้ตอนนี้",
   keywords: [
     "บ้าน", "อสังหา", "ขายที่ดิน", "โครงการใหม่", "บ้านสร้างใหม่", 
     "บ้านเดี่ยว", "บ้านเชียงใหม่", "บ้านแม่ริม", "บ้านดอยสะเก็ด",
@@ -55,13 +43,13 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
-    description: "ขายบ้าน อสังหาโครงการใหม่ บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน เชียงใหม่ พร้อมอยู่ ราคาดี",
+    title: "บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตรฐาน | Peter Property",
+    description: "บ้านเดี่ยวนอกโครงการ เชียงใหม่ แม่ริม ดอยสะเก็ด ออกแบบและสร้างเอง ควบคุมคุณภาพทุกขั้นตอน ดูโครงการที่กำลังก่อสร้างและจองได้ตอนนี้",
     url: "https://peterproperty.adappts.com",
     siteName: "Peter Property",
     images: [
       {
-        url: "https://peterproperty.adappts.com/properties/P1/20250906_105639731_iOS.jpg",
+        url: "https://peterproperty.adappts.com/properties/P1/nest-1-exterior.jpg",
         width: 1200,
         height: 630,
         alt: "บ้านเดี่ยว Peter Property เชียงใหม่",
@@ -72,15 +60,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน | Peter Property",
-    description: "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน",
-    images: ["https://peterproperty.adappts.com/properties/P1/20250906_105639731_iOS.jpg"],
+    title: "บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตรฐาน | Peter Property",
+    description: "บ้านเดี่ยวนอกโครงการ เชียงใหม่ แม่ริม ดอยสะเก็ด ออกแบบและสร้างเอง ควบคุมคุณภาพทุกขั้นตอน",
+    images: ["https://peterproperty.adappts.com/properties/P1/nest-1-exterior.jpg"],
   },
-  verification: {
-    google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // yahoo: "your-yahoo-verification-code",
-  }
 };
 
 export default function RootLayout({
@@ -93,7 +76,7 @@ export default function RootLayout({
     "name": "Peter Property",
     "description": "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่",
     "url": "https://peterproperty.adappts.com",
-    "logo": "https://peterproperty.adappts.com/properties/P1/20250906_105639731_iOS.jpg",
+    "logo": "https://peterproperty.adappts.com/icons/Property_logo_6.png",
     "areaServed": {
       "@type": "City",
       "name": "Chiang Mai",
@@ -113,14 +96,22 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="th" className="bg-[#0c0a08]" style={{ colorScheme: 'dark' }}>
+    <html
+      lang="th"
+      className={`${prompt.variable} bg-[#0c0a08]`}
+      style={{ colorScheme: 'dark' }}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${kanit.variable} ${ibm.variable} ${tinos.variable} bg-[#0c0a08] text-[#f7f2e7]`}>
+      <body
+        className="bg-[#0c0a08] text-[#f5efe3]"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
+import { projectList } from '@/lib/projects'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://peterproperty.adappts.com'
-  
+
   return [
     {
       url: baseUrl,
@@ -12,29 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
-    {
-      url: `${baseUrl}/Project/p1`,
+    ...projectList.map((project) => ({
+      url: `${baseUrl}/Project/${project.id}/`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/Project/p2`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/Project/p3`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/Project/p4`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    }
+    })),
   ]
 }

@@ -7,251 +7,108 @@ interface PropertySlideshowProps {
   images: string[];
   alt: string;
   className?: string;
-  tone?: 'light' | 'dark';
 }
 
-export default function PropertySlideshow({
-  images,
-  alt,
-  className = '',
-  tone = 'light',
-}: PropertySlideshowProps) {
+export default function PropertySlideshow({ images, alt, className = '' }: PropertySlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
   const [hasMounted, setHasMounted] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  const isDark = tone === 'dark';
-
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   }, [images.length]);
-
-  const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index);
-  }, []);
 
   useEffect(() => {
     setHasMounted(true);
-
     if (typeof window !== 'undefined') {
       const media = window.matchMedia('(prefers-reduced-motion: reduce)');
       setPrefersReducedMotion(media.matches);
-
-      const listener = (event: MediaQueryListEvent) => {
-        setPrefersReducedMotion(event.matches);
-      };
-
+      const listener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
       media.addEventListener('change', listener);
-
-      return () => {
-        media.removeEventListener('change', listener);
-      };
+      return () => media.removeEventListener('change', listener);
     }
   }, []);
 
-  // Touch handlers for mobile swipe
+  useEffect(() => {
+    if (!hasMounted || images.length <= 1 || prefersReducedMotion) return;
+    const interval = setInterval(nextSlide, 5500);
+    return () => clearInterval(interval);
+  }, [hasMounted, prefersReducedMotion, images.length, nextSlide]);
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
-
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
   };
-
   const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    
+    if (touchStartX.current === null || touchEndX.current === null) return;
     const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      nextSlide();
-    } else if (isRightSwipe) {
-      prevSlide();
-    }
-
+    if (distance > 50) nextSlide();
+    else if (distance < -50) prevSlide();
     touchStartX.current = null;
     touchEndX.current = null;
   };
 
-  // Auto-play functionality (optional)
-  useEffect(() => {
-    if (!hasMounted || images.length <= 1 || prefersReducedMotion) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [hasMounted, prefersReducedMotion, images.length, nextSlide]);
-
-  const showOverlay = hasMounted && isLoading;
-
   return (
-    <div
-      className={`relative w-full overflow-hidden rounded-[28px] ${
-        isDark
-          ? 'border border-white/10 bg-white/5 backdrop-blur'
-          : 'bg-gray-100'
-      } ${className}`}
-    >
-      {/* Main Image Container */}
-      <div 
-        className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden"
+    <div className={`relative w-full bg-[var(--bg-deep)] ${className}`}>
+      <div
+        className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9]"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <Image
           src={images[currentIndex]}
-          alt={`${alt} - Image ${currentIndex + 1}`}
+          alt={`${alt} — ภาพที่ ${currentIndex + 1}`}
           fill
-          className="object-cover transition-opacity duration-300"
+          className="object-cover"
           priority={currentIndex === 0}
-          onLoadingComplete={() => {
-            if (hasMounted) {
-              setIsLoading(false);
-            }
-          }}
         />
-        
-        {/* Loading overlay */}
-        {showOverlay && (
-          <div
-            className={`absolute inset-0 flex items-center justify-center animate-pulse ${
-              isDark ? 'bg-white/10 text-white/60' : 'bg-gray-200 text-gray-500'
-            }`}
-          >
-            <div>Loading...</div>
-          </div>
-        )}
 
-        {/* Navigation Arrows - Hidden on mobile, shown on larger screens */}
         <button
           onClick={prevSlide}
-          className={`absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full transition-colors z-10 sm:flex ${
-            isDark
-              ? 'bg-white/10 text-white hover:bg-white/20'
-              : 'bg-black/50 text-white hover:bg-black/70'
-          }`}
-          aria-label="Previous image"
+          className="absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center bg-[var(--bg-deep)]/70 text-[var(--ink)] transition-colors hover:bg-[var(--accent)] sm:flex"
+          aria-label="ภาพก่อนหน้า"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        
+
         <button
           onClick={nextSlide}
-          className={`absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 transform items-center justify-center rounded-full transition-colors z-10 sm:flex ${
-            isDark
-              ? 'bg-white/10 text-white hover:bg-white/20'
-              : 'bg-black/50 text-white hover:bg-black/70'
-          }`}
-          aria-label="Next image"
+          className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center bg-[var(--bg-deep)]/70 text-[var(--ink)] transition-colors hover:bg-[var(--accent)] sm:flex"
+          aria-label="ภาพถัดไป"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
-        {/* Image Counter */}
-        <div
-          className={`absolute top-5 right-5 rounded-full px-3 py-1 text-sm ${
-            isDark ? 'bg-black/50 text-white/90 backdrop-blur' : 'bg-black/50 text-white'
-          }`}
-        >
+        <div className="absolute bottom-4 right-4 bg-[var(--bg-deep)]/70 px-3 py-1 text-sm text-[var(--ink)]">
           {currentIndex + 1} / {images.length}
         </div>
+      </div>
 
-        {/* Swipe Indicator for Mobile */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:hidden">
-          <div
-            className={`flex items-center space-x-2 rounded-full px-3 py-1 text-xs ${
-              isDark ? 'bg-black/40 text-white/80 backdrop-blur' : 'bg-black/50 text-white'
+      <div className="hidden gap-1 overflow-x-auto bg-[var(--surface)] p-2 md:flex">
+        {images.map((image, index) => (
+          <button
+            key={image}
+            onClick={() => setCurrentIndex(index)}
+            className={`relative h-14 w-20 shrink-0 overflow-hidden transition-opacity ${
+              index === currentIndex ? 'opacity-100' : 'opacity-50 hover:opacity-80'
             }`}
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            <span>Swipe</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      {/* Dots Indicator */}
-      <div
-        className={`flex items-center justify-center space-x-2 px-4 ${
-          isDark ? 'bg-white/5 backdrop-blur' : 'bg-white'
-        }`}
-      >
-        <div className="flex space-x-1 overflow-x-auto max-w-full py-2 px-2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`flex-shrink-0 rounded-full transition-all duration-200 ${
-                index === currentIndex
-                  ? isDark
-                    ? 'h-2 w-4 scale-125 bg-amber-400'
-                    : 'h-2 w-4 scale-125 bg-blue-600'
-                  : isDark
-                    ? 'h-2 w-2 bg-white/30 hover:bg-white/50'
-                    : 'h-2 w-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to image ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Thumbnail strip for larger screens */}
-      <div
-        className={`hidden p-2 md:block ${
-          isDark ? 'bg-white/5 backdrop-blur' : 'bg-gray-50'
-        }`}
-      >
-        <div className="flex space-x-2 overflow-x-auto py-2">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`relative h-16 w-20 flex-shrink-0 overflow-hidden rounded transition-all duration-200 ${
-                index === currentIndex
-                  ? isDark
-                    ? 'ring-2 ring-amber-400/80 scale-105'
-                    : 'ring-2 ring-blue-600 scale-105'
-                  : isDark
-                    ? 'hover:ring-2 hover:ring-white/50'
-                    : 'hover:ring-2 hover:ring-gray-400'
-              }`}
-            >
-              <Image
-                src={image}
-                alt={`${alt} thumbnail ${index + 1}`}
-                fill
-                className="object-cover"
-              />
-            </button>
-          ))}
-        </div>
+            <Image src={image} alt={`${alt} — ภาพย่อ ${index + 1}`} fill className="object-cover" />
+          </button>
+        ))}
       </div>
     </div>
   );

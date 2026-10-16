@@ -1,11 +1,11 @@
 {
-  "name": "Peter Property - บ้านเดี่ยว นอกโครการ มีคุณภาพ มาตราฐาน",
+  "name": "Peter Property - บ้านเดี่ยว นอกโครงการ มีคุณภาพ มาตรฐาน",
   "short_name": "Peter Property",
-  "description": "ขายบ้าน โครงการใหม่ ราคาพิเศษ ทำเลดี ข้อมูลครบถ้วน บ้านเดี่ยว 2 ชั้น พร้อมอยู่ เชียงใหม่",
+  "description": "บ้านเดี่ยวนอกโครงการ เชียงใหม่ แม่ริม ดอยสะเก็ด ออกแบบและสร้างเอง ควบคุมคุณภาพทุกขั้นตอน",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0c0a08",
-  "theme_color": "#d4a574",
+  "theme_color": "#0c0a08",
   "orientation": "portrait-primary",
   "lang": "th",
   "dir": "ltr",
@@ -32,7 +32,7 @@
   "categories": ["business", "lifestyle"],
   "screenshots": [
     {
-      "src": "/properties/P1/20250906_105639731_iOS.jpg",
+      "src": "/properties/P1/nest-1-exterior.jpg",
       "sizes": "1200x630",
       "type": "image/jpeg"
     }
