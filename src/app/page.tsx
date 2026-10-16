@@ -62,9 +62,9 @@ export default function Home() {
             <span className="text-base text-[var(--muted)]">{projectList.length} โครงการ</span>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
             {projectList.map((project, i) => (
-              <Reveal key={project.id} delay={i * 80}>
+              <Reveal key={project.id} delay={(i % 2) * 60}>
                 <PropertyCard project={project} />
               </Reveal>
             ))}
