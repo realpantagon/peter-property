@@ -64,7 +64,7 @@ export default function Home() {
 
           <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
             {projectList.map((project, i) => (
-              <Reveal key={project.id} delay={i * 80}>
+              <Reveal key={project.id} delay={(i % 2) * 60}>
                 <PropertyCard project={project} />
               </Reveal>
             ))}
